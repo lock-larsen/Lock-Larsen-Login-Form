@@ -1,0 +1,401 @@
+/* ============================================
+   FORMULAIRE DE CONNEXION - FEUILLE DE STYLE
+   Auteur: Lock Larsen Anslla
+   Version: 1.0.0
+   Date: Octobre 2025
+   Licence: MIT License
+   ============================================ */
+
+/* ============================================
+   RESET & CONFIGURATION DE BASE
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   TYPOGRAPHIE & VARIABLES CSS
+   ============================================ */
+:root {
+  /* Couleurs principales */
+  --primary-color: #1877f2;
+  --secondary-color: rgba(24, 119, 242, 0.7);
+  --text-color: #333;
+  --light-text: #666;
+  --border-color: #ddd;
+
+  /* Couleurs de statut */
+  --error-color: #e74c3c;
+  --success-color: #2ecc71;
+
+  /* Couleurs des réseaux sociaux */
+  --google-color: #db4437;
+  --facebook-color: #1877f2;
+  --apple-color: #000000;
+
+  /* Espacement */
+  --spacing-unit: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+/* ============================================
+   CONTENEUR PRINCIPAL & ARRIÈRE-PLAN
+   ============================================ */
+.container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  background-image: url("images/backround.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Overlay bleu transparent sur l'image de fond */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(24, 119, 242, 0.6);
+  z-index: 1;
+}
+
+/* ============================================
+   SECTION FORMULAIRE (GAUCHE)
+   ============================================ */
+.form-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--spacing-unit) * 2);
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 450px;
+}
+
+/* En-tête du formulaire */
+.form-header {
+  text-align: center;
+  margin-bottom: calc(var(--spacing-unit) * 4);
+}
+
+.form-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: calc(var(--spacing-unit) * 1);
+}
+
+.form-header p {
+  color: var(--light-text);
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   FORMULAIRE & CHAMPS DE SAISIE
+   ============================================ */
+.login-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: calc(var(--spacing-unit) * 1);
+  font-weight: 500;
+  color: var(--text-color);
+  font-size: 0.9rem;
+}
+
+/* Champs de saisie avec validation HTML5 */
+.form-group input {
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 1.5);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+/* États des champs */
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.1);
+}
+
+.form-group input:invalid:not(:placeholder-shown) {
+  border-color: var(--error-color);
+}
+
+.form-group input:valid:not(:placeholder-shown) {
+  border-color: var(--success-color);
+}
+
+/* Options supplémentaires */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: calc(var(--spacing-unit) * 3);
+  font-size: 0.9rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--spacing-unit) * 1);
+}
+
+.remember-me input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.forgot-password {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* ============================================
+   BOUTONS
+   ============================================ */
+.btn {
+  width: 100%;
+  padding: calc(var(--spacing-unit) * 1.75);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.btn-primary:hover {
+  background-color: #166fe5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+}
+
+/* Séparateur */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: calc(var(--spacing-unit) * 1) 0;
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.divider span {
+  padding: 0 calc(var(--spacing-unit) * 2);
+}
+
+/* ============================================
+   BOUTONS DE CONNEXION SOCIALE
+   ============================================ */
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-unit) * 1);
+}
+
+.btn-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spacing-unit) * 1.5);
+  padding: calc(var(--spacing-unit) * 1.5);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: white;
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-social:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Icônes SVG pour les boutons sociaux */
+.btn-social svg {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-google:hover {
+  border-color: var(--google-color);
+  background-color: rgba(219, 68, 55, 0.05);
+}
+
+.btn-facebook:hover {
+  border-color: var(--facebook-color);
+  background-color: rgba(24, 119, 242, 0.05);
+}
+
+.btn-apple:hover {
+  border-color: var(--apple-color);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Pied du formulaire */
+.form-footer {
+  text-align: center;
+  margin-top: calc(var(--spacing-unit) * 3);
+  color: var(--light-text);
+  font-size: 0.9rem;
+}
+
+.form-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   SECTION LOGO (DROITE)
+   ============================================ */
+.logo-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-container {
+  text-align: center;
+  color: white;
+}
+
+.logo-image {
+  width: 180px;
+  height: 180px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto calc(var(--spacing-unit) * 3);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.logo-text {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: calc(var(--spacing-unit) * 2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.logo-tagline {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablettes et écrans moyens */
+@media (max-width: 968px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .form-section {
+    order: 2;
+  }
+
+  .logo-section {
+    order: 1;
+    min-height: 30vh;
+    padding: calc(var(--spacing-unit) * 4);
+  }
+
+  .logo-image {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .logo-tagline {
+    font-size: 1rem;
+  }
+}
+
+/* Smartphones */
+@media (max-width: 480px) {
+  .form-section {
+    padding: calc(var(--spacing-unit) * 2);
+  }
+
+  .form-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: calc(var(--spacing-unit) * 1);
+  }
+}
